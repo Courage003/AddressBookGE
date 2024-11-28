@@ -8,7 +8,6 @@ public class Contact {
     int zip;
 
     public Contact(String firstName, String lastName, String city, String state, String email, int phone, int zip) {
-
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -18,7 +17,16 @@ public class Contact {
         this.zip = zip;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", email='" + email + '\'' +
+                ", phone=" + phone +
+                ", zip=" + zip +
+                '}';
+    }
 }
-
