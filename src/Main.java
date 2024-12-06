@@ -1,20 +1,35 @@
 import java.util.Scanner;
 
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //Generic code suitable and industry preferred for dynamic changes required
+        AddressBook<Contact> a1 = new AddressBook<>();
+        a1.adBook.add(new Contact("Akshita","Kullarni","Hyd","Telengana","Abc",123,111));
+        a1.adBook.add(new Contact("Angira","Tiwari","Mirzapur","UP","Abc",123,111));
+        a1.adBook.add(new Contact("Akshaya","Nalam","Guntur","AP","Abc",123,111));
+        a1.adBook.add(new Contact("riya","bisht","dehradun","uttrakhand","abc",124,11));
+        a1.adBook.add(new Contact("Deepa","Pandey","Haldwani","Uttrakhand","abc",123,111));
+        a1.adBook.add(new Contact("Shuchita","Gupta","Guna","MP","a", 345,890));
+        a1.adBook.add(new Contact("Dhanalaxmi","Musku","Hyd","Telangana","AC",123,444));
+        a1.adBook.add(new Contact("Lakshita","Tak","Jaipur","Rajasthan","abc",133,10));
+        a1.adBook.add(new Contact("Priya","Chintagunta","Rajahmundry","AndhraPradesh","xyz",123,111));
+        a1.adBook.add(new Contact("Aakriti","Tiwari","Jhansi","Uttar pradesh","abc",145,414));
 
-        AddressBook<BusinessContact> a1 = new AddressBook<>();
+
+
         int i = 1;
+        LinkedListDemo<BusinessContact> l1 = new LinkedListDemo<>();
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Address book");
         do{
-            System.out.println("Enter 1 to create contact \n Enter 2 to display al contacts");
+            System.out.println("Enter 1 to create contact \n Enter 2 to display al contacts \n Enter 3 to migrate data to custom linked list \n Enter 4 for display migrated list");
             int input = sc.nextInt();
             switch (input){
-                case 1 -> a1.addContact(createBusinessContact());
-
+                case 1 -> a1.addContact(createContact());
                 case 2 ->  a1.display();
+                case 3 -> a1.search();
+                case 4 -> l1.printMigratedList();
                 default -> System.out.println("Wrong input");
             }
             System.out.println("Enter 0 to exit");
@@ -27,9 +42,6 @@ public class Main {
 
 
     }
-
-
-
     public static Contact createContact() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter name");
@@ -50,20 +62,21 @@ public class Main {
         return c1;
     }
 
-    public static BusinessContact createBusinessContact(){
+    public static BusinessContact createBussinessContact(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Company name: ");
-        String cname=sc.next();
-        System.out.println("Employee name");
+        System.out.println("Company name ");
+        String cname = sc.next();
+        System.out.println("Employee Name");
         String ename = sc.next();
         System.out.println("Employee mail");
-        String bmail=sc.next();
+        String bmail= sc.next();
 
         BusinessContact b1 = new BusinessContact(cname,ename,bmail);
         return b1;
 
 
     }
+    //Streams - Pipeline of data provided by the collection - it's a one time use object
 
 
 

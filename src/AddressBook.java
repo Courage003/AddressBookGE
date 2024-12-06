@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressBook<Placeholder> {
-    List<Placeholder> adBook = new ArrayList<>();
+public class AddressBook<T extends Dummy1> {
+    List<T> adBook = new ArrayList<>();
 
 
 
@@ -13,8 +13,16 @@ public class AddressBook<Placeholder> {
 
 
 
-    public void addContact(Placeholder c1){
-        adBook.add((Placeholder) c1);
+    public void addContact(T c1){
+        adBook.add(c1);
+
+    }
+
+    public void search(){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the first name to search");
+        String s1=sc.next();
+        adBook.stream().filter(i->i.getFirstName().equalsIgnoreCase(s1)).forEach(System.out::println);
 
     }
 }
